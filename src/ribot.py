@@ -102,7 +102,7 @@ async def on_guild_remove(guild: discord.Guild):
 async def send_hello():
     rows = db.fetchall("SELECT notify_channel_id FROM server_table WHERE notify_channel_id IS NOT NULL")
     for row in rows:
-        channel = bot.get_channel(row["notify_channel_id"])
+        channel = bot.get_channel(row[0])
         if(channel):
             await channel.send("Hello")
 

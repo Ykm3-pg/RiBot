@@ -7,4 +7,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY src ./src
 
+RUN mkdir -p /app/data
+
 CMD ["python", "src/ribot.py"]

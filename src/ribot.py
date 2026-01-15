@@ -24,7 +24,7 @@ bot = commands.Bot(command_prefix="!", intents=intents)
 #------------------------------------------------------------------------------
 # DB 初期化
 #------------------------------------------------------------------------------
-db = SqliteDatabase("/app/data/RiBot.db")
+db = SqliteDatabase("/data/RiBot.db")
 
 db.execute("""
 CREATE TABLE IF NOT EXISTS server_table (
@@ -105,7 +105,7 @@ async def send_hello():
     for row in rows:
         channel = bot.get_channel(row[0])
         if(channel):
-            await channel.send("Test Hello")
+            await channel.send("Hello, 0")
 
 @send_hello.before_loop
 async def before_send_hello():

@@ -105,7 +105,7 @@ async def send_hello():
     for row in rows:
         channel = bot.get_channel(row[0])
         if(channel):
-            await channel.send("Hello")
+            await channel.send("Test Hello")
 
 @send_hello.before_loop
 async def before_send_hello():

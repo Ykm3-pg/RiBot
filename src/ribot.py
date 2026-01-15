@@ -98,7 +98,8 @@ async def on_guild_remove(guild: discord.Guild):
 #------------------------------------------------------------------------------
 JST = datetime.timezone(datetime.timedelta(hours=9))
 
-@tasks.loop(time=datetime.time(hour=9, minute=0, tzinfo=JST))
+# @tasks.loop(time=datetime.time(hour=9, minute=0, tzinfo=JST))
+@tasks.loop(minutes=1)
 async def send_hello():
     rows = db.fetchall("SELECT notify_channel_id FROM server_table WHERE notify_channel_id IS NOT NULL")
     for row in rows:
